@@ -1,0 +1,66 @@
+services:
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: laravel-app
+        container_name: agence-immo-app
+        restart: unless-stopped
+        working_dir: /var/www
+        volumes:
+            - .:/var/www
+        networks:
+            - laravel
+
+    webserver:
+        image: nginx:alpine
+        container_name: agence-immo-webserver
+        restart: unless-stopped
+        ports:
+            - "8000:80"
+        volumes:
+            - .:/var/www
+            - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+        networks:
+            - laravel
+        depends_on:
+            - app
+        # command: sh -c "chown -R ${UID}:${GID} /var/www/storage /var/www/bootstrap/cache && nginx -g 'daemon off;'"
+
+    db:
+        image: mysql:8.0
+        container_name: agence-immo-db
+        restart: unless-stopped
+        environment:
+            MYSQL_DATABASE: agence_immo_db
+            MYSQL_ROOT_PASSWORD: secret
+            MYSQL_USER: user
+            MYSQL_PASSWORD: secret
+        ports:
+            - "3306:3306"
+        volumes:
+            - dbdata:/var/lib/mysql
+        networks:
+            - laravel
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: agence-immo-phpmyadmin
+        restart: unless-stopped
+        ports:
+            - "8080:80"
+        environment:
+            PMA_HOST: db
+            PMA_PORT: 3306
+            MYSQL_ROOT_PASSWORD: secret
+        networks:
+            - laravel
+        depends_on:
+            - db
+
+volumes:
+    dbdata:
+
+networks:
+    laravel:
+        driver: bridge
