@@ -201,6 +201,8 @@
         @enderror
     </div>
 
+    @include('shared.select', ['name' => 'options', 'value' => $property->options()->pluck('id'), 'multiple' => true, 'options' => $options])
+
     <!-- Bouton de soumission -->
     <div class="d-grid gap-2">
         <button type="submit" class="btn btn-primary btn-lg">

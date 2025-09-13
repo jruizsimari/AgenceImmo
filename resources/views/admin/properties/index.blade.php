@@ -1,6 +1,6 @@
 @extends('admin.base')
 
-@section('title', 'Liste des Propriétés')
+@section('title', 'Liste des biens')
 
 @section('content')
     <div class="d-flex justify-content-between align-items-center">
