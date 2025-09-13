@@ -1,4 +1,4 @@
-@extends('admin.base')
+@extends('admin.admin')
 
 @section('title', 'Créer un Option')
 

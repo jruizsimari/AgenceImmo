@@ -1,4 +1,4 @@
-@extends('admin.base')
+@extends('admin.admin')
 
 @section('title', 'Liste des options')
 
@@ -20,7 +20,8 @@
             <tr>
                 <td>{{ $option->name }}</td>
                 <td class="text-end">
-                    <a class="btn btn-primary" href="{{ route('admin.option.edit', $option) }}"><i class="bi bi-pencil-square"></i></a>
+                    <a class="btn btn-primary" href="{{ route('admin.option.edit', $option) }}"><i
+                                class="bi bi-pencil-square"></i></a>
                     <form class="d-inline" action="{{ route('admin.option.destroy', $option) }}" method="post">
                         @csrf
                         @method('delete')

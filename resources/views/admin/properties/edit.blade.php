@@ -1,4 +1,4 @@
-@extends('admin.base')
+@extends('admin.admin')
 
 @section('title', 'Editer la propriété')
 
