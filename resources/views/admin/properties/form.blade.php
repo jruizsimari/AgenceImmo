@@ -45,10 +45,10 @@
                        name="surface"
                        value="{{ old('surface', $property->surface) }}"
                        min="10">
+                @error('surface')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
-            @error('surface')
-            <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
         </div>
 
         <!-- Nombre de pièces -->
@@ -63,10 +63,10 @@
                        name="rooms"
                        value="{{ old('rooms', $property->rooms) }}"
                        min="1">
+                @error('rooms')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
-            @error('rooms')
-            <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
         </div>
     </div>
 
@@ -83,10 +83,10 @@
                        name="bedrooms"
                        value="{{ old('bedrooms', $property->bedrooms) }}"
                        min="0">
+                @error('bedrooms')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
-            @error('bedrooms')
-            <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
         </div>
 
         <!-- Étage -->
@@ -101,10 +101,10 @@
                        name="floor"
                        value="{{ old('floor', $property->floor) }}"
                        min="0">
+                @error('floor')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
-            @error('floor')
-            <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
         </div>
     </div>
 
@@ -120,10 +120,10 @@
                    name="price"
                    value="{{ old('price', $property->price) }}"
                    min="0">
+            @error('price')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
-        @error('price')
-        <div class="invalid-feedback">{{ $message }}</div>
-        @enderror
     </div>
 
     <div class="row">
@@ -138,10 +138,10 @@
                        id="city"
                        name="city"
                        value="{{ old('city', $property->city) }}">
+                @error('city')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
-            @error('city')
-            <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
         </div>
 
         <!-- Code postal -->
@@ -156,10 +156,10 @@
                        name="postal_code"
                        value="{{ old('postal_code', $property->postal_code) }}"
                        pattern="[0-9]{5}">
+                @error('postal_code')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
-            @error('postal_code')
-            <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
         </div>
     </div>
 
@@ -180,11 +180,11 @@
 
     <!-- Statut vendu -->
     <div class="mb-4">
-        <div class="form-check form-switch">
+        <div class="form-check form-switch @error('sold') is-invalid @enderror">
             <input type="hidden"
                    name="sold"
                    value="0">
-            <input class="form-check-input @error('sold') is-invalid @enderror"
+            <input class="form-check-input"
                    type="checkbox"
                    role="switch"
                    id="sold"
@@ -195,10 +195,10 @@
             <label class="form-check-label fw-bold" for="sold">
                 <i class="bi bi-check-circle me-1"></i>Propriété vendue
             </label>
+            @error('sold')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
-        @error('sold')
-        <div class="invalid-feedback d-block">{{ $message }}</div>
-        @enderror
     </div>
 
     @include('shared.select', ['name' => 'options', 'value' => $property->options()->pluck('id'), 'multiple' => true, 'options' => $options])

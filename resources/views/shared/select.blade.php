@@ -5,14 +5,15 @@
     $label ??= ucfirst($name);
 @endphp
 <div @class(['form-group', $class])>
-    <i class="bi bi-gear"></i> <label for="{{ $name }}">{{ $label }}</label>
+    <i class="bi bi-gear"></i> <label class="form-label fw-bold" for="{{ $name }}">{{ $label }}</label>
     <select name="{{ $name }}[]" id="{{ $name }}" multiple>
         @foreach($options as $k => $v)
             <option @selected($value->contains($k)) value="{{ $k }}">{{ $v }}</option>
         @endforeach
     </select>
+    {{--TODO : fix display errors when the field is empty, add is-invalid class to select and test this after--}}
     @error('{{ $name }}')
-    <div class="invalid-feedback d-block">{{ $message }}</div>
+    <div class="invalid-feedback">{{ $message }}</div>
     @enderror
     <script>
         var settings = {};
