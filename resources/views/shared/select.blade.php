@@ -12,7 +12,7 @@
         @endforeach
     </select>
     {{--TODO : fix display errors when the field is empty, add is-invalid class to select and test this after--}}
-    @error('{{ $name }}')
+    @error($name)
     <div class="invalid-feedback">{{ $message }}</div>
     @enderror
     <script>

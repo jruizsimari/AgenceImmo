@@ -21,7 +21,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a @class(['active' => str_contains($route_name, '.property'), 'nav-link']) href="/">Biens</a>
+                    <a @class(['active' => str_contains($route_name, '.property'), 'nav-link']) href="{{ route('property.index') }}">Biens</a>
                 </div>
             </div>
         </div>
