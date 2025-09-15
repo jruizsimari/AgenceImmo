@@ -11,4 +11,3 @@
 {{--                @endforeach--}}
 {{--            </ul>--}}
 {{--        @endif--}}
-@yield('content')

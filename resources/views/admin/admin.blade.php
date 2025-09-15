@@ -29,6 +29,20 @@
                         <a @class(['active' => str_contains($route_name, '.option'), 'nav-link']) href="{{ route('admin.option.index') }}">Gérer les Options</a>
                     </div>
                 </div>
+                <div class="ms-auto">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+
+                        </li>
+                        <li class="nav-item">
+                            <form action="{{ route('logout') }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button class="nav-link">Se déconnecter</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
 
