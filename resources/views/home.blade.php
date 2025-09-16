@@ -3,6 +3,15 @@
 @section('title', 'Page d\'accueil')
 
 @section('content')
+{{--    @php--}}
+{{--    $type = 'danger';--}}
+{{--    @endphp--}}
+
+{{--    <x-alert :type="$type"></x-alert>--}}
+{{--    <x-alert type="danger" class="fw-bold" id="test">--}}
+{{--        Des informations--}}
+{{--    </x-alert>--}}
+
     <div class="bg-light p-5 mb-5 text-center">
         <div class="container">
             <h1>Agence Marrakech</h1>
