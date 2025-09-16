@@ -45,10 +45,10 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    protected function password(): Attribute {
-        return Attribute::make(
-            get: fn(?string $value) => '', // si j'essaie de récupérer $user->password => '',
-            // set: fn(string $value) => Hash::make($value) // si je set $user->password = '0000' elle sera Hashée
-        );
-    }
+//    protected function password(): Attribute {
+//        return Attribute::make(
+//            get: fn(?string $value) => '', // si j'essaie de récupérer $user->password => '',
+//            // set: fn(string $value) => Hash::make($value) // si je set $user->password = '0000' elle sera Hashée
+//        );
+//    }
 }

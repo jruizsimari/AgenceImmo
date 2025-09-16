@@ -11,10 +11,7 @@ class HomeController extends Controller
     public function index()
     {
         $properties = Property::available()->recent()->limit(4)->get();
-
-        $user = User::first();
-        $user->password = '0000';
-        dd($user->password, $user);
+//        dd($properties);
 
         return view('home', [
             'properties' => $properties
