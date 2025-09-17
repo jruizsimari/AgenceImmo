@@ -28,12 +28,14 @@
                 <td class="text-end">
                     <a class="btn btn-primary" href="{{ route('admin.property.edit', $property) }}"><i
                             class="bi bi-pencil-square"></i></a>
+                    @can('delete', $property)
                     <form class="d-inline" action="{{ route('admin.property.destroy', $property) }}" method="post">
                         @csrf
                         @method('delete')
                         <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button>
                     </form>
                     {{--                    <a class="btn btn-danger" href="{{ route('admin.property.destroy', $property) }}"><i class="bi bi-trash"></i></a>--}}
+                    @endcan
                 </td>
             </tr>
         @endforeach

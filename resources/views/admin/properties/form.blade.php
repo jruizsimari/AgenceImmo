@@ -22,7 +22,7 @@
         <label for="description" class="form-label fw-bold">
             <i class="bi bi-card-text me-1"></i>Description
         </label>
-        <textarea class="form-control @error('description')is-invalid@enderror"
+        <textarea class="form-control @error('description') is-invalid @enderror"
                   id="description"
                   name="description"
                   rows="4"
@@ -40,7 +40,7 @@
             </label>
             <div class="icon-input">
                 <input type="number"
-                       class="form-control @error('surface')is-invalid@enderror"
+                       class="form-control @error('surface') is-invalid @enderror"
                        id="surface"
                        name="surface"
                        value="{{ old('surface', $property->surface) }}"
