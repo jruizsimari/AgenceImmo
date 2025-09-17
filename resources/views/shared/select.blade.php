@@ -1,7 +1,7 @@
 @php
     $class ??= null;
     $name ??= '';
-    $value ??= '';
+    $value ??= collect($value ?? []); // toujours une collection;
     $label ??= ucfirst($name);
 @endphp
 <div @class(['form-group', $class])>
