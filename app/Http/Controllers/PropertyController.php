@@ -52,7 +52,6 @@ class PropertyController extends Controller
     }
 
     public function contact(Property $property, PropertyContactRequest $request) {
-
         ContactRequestEvent::dispatch($property, $request->validated());
 //        event(new ContactRequestEvent($property, $request->validated()));
 
