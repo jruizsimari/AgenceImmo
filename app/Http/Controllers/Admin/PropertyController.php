@@ -8,6 +8,7 @@ use App\Http\Requests\PropertyContactRequest;
 use App\Mail\PropertyContactMail;
 use App\Models\Option;
 use App\Models\Property;
+use Illuminate\Auth\AuthManager;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -22,8 +23,9 @@ class PropertyController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(AuthManager $authManager)
     {
+//        dd($authManager->user());
 //        dd(Auth::user()->can('viewAny', Property::class));
         return view('admin.properties.index', [
             'properties' => Property::orderBy('created_at', 'desc')->withTrashed()->paginate(25)
