@@ -4,13 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PropertyFormRequest;
-use App\Http\Requests\PropertyContactRequest;
-use App\Mail\PropertyContactMail;
 use App\Models\Option;
 use App\Models\Property;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 
 class PropertyController extends Controller
 {
