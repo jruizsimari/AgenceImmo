@@ -43,8 +43,8 @@ class PropertyController extends Controller
 
     public function show(string $slug, Property $property)
     {
-        /** @var User $user */
-        $user = User::first();
+        // /** @var User $user */
+//        $user = User::first();
 //        dd($user->notifications);
 //        dd($user->unreadNotifications);
 //        dd($user->unreadNotifications[0]->markAsRead());
