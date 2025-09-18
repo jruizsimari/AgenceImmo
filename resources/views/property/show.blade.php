@@ -14,7 +14,8 @@
         <hr>
 
         <div class="mt-4">
-            <h4 class="mb-4">Intéressé par ce bien ?</h4>
+{{--            <h4 class="mb-4">{{ __('Interested in this property ?') }}</h4>--}}
+            <h4 class="mb-4">{{ __('Interested in the property :title ?', ['title' => $property->title]) }}</h4>
 
             @include('shared.flash')
 
