@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Events\ContactRequestEvent;
 use App\Http\Requests\PropertyContactRequest;
 use App\Http\Requests\SearchPropertiesRequest;
+use App\Jobs\DemoJob;
 use App\Mail\PropertyContactMail;
 use App\Models\Property;
 use App\Models\User;
@@ -43,11 +44,15 @@ class PropertyController extends Controller
 
     public function show(string $slug, Property $property)
     {
+        // à voir l'exemple avec des transaction sql et les jobs dans la meme logique
+        DemoJob::dispatch($property)->delay(now()->addSeconds(5));
+
         // /** @var User $user */
 //        $user = User::first();
 //        dd($user->notifications);
 //        dd($user->unreadNotifications);
 //        dd($user->unreadNotifications[0]->markAsRead());
+
         $expectedSlug = $property->getSlug();
         if ($slug !== $expectedSlug) {
             return to_route('property.show', ['slug' => $expectedSlug, 'property' => $property]);
