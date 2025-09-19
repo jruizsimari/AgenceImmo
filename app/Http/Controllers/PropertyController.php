@@ -12,6 +12,7 @@ use App\Models\User;
 use App\Notifications\ContactRequestNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Notification;
 
 class PropertyController extends Controller
 {
@@ -68,10 +69,10 @@ class PropertyController extends Controller
 //        ContactRequestEvent::dispatch($property, $request->validated());
 //        event(new ContactRequestEvent($property, $request->validated()));
         // au lieu d'utiliser cette event je vais utiliser le systeme de notification
-        /** @var User $user */
-        $user = User::first();
-        $user->notify(new ContactRequestNotification($property, $request->validated()));
-
+//        /** @var User $user */
+//        $user = User::first();
+//        $user->notify(new ContactRequestNotification($property, $request->validated()));
+        Notification::route('mail', 'john@admin.fr')->notify(new ContactRequestNotification($property, $request->validated()));
 
         return back()->with('success', 'Votre demande a bien été envoyée.');
     }
